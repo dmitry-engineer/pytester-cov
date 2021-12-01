@@ -12,6 +12,10 @@ cov_config_fname=.coveragerc
 cov_threshold_single_fail=false
 cov_threshold_total_fail=false
 
+if test -f "$4"; then
+    $(poetry install)
+    $(poetry add pytest pytest-cov)
+fi
 
 # write omit str list to coverage file
 cat << EOF > $cov_config_fname
@@ -29,7 +33,7 @@ for dir in $pytest_dirs; do
   pytest_cov_dirs+="--cov=${dir} "
 done
 
-output=$(python3 -m pytest $pytest_cov_dirs --cov-config=.coveragerc $2)
+output=$(poetry run pytest $pytest_cov_dirs --cov-config=.coveragerc $2)
 
 # remove pytest-coverage config file
 if [ -f $cov_config_fname ]; then
