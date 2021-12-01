@@ -12,10 +12,6 @@ cov_config_fname=.coveragerc
 cov_threshold_single_fail=false
 cov_threshold_total_fail=false
 
-# must reinstall requirements in container to prevent ImportErrors
-if test -f "$4"; then
-    $(poetry install --no-dev)
-fi
 
 # write omit str list to coverage file
 cat << EOF > $cov_config_fname
