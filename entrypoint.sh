@@ -12,8 +12,10 @@ cov_config_fname=.coveragerc
 cov_threshold_single_fail=false
 cov_threshold_total_fail=false
 
-$(poetry install)
-$(poetry add pytest pytest-cov)
+pip install 'poetry==1.1.11'
+poetry config virtualenvs.create false
+poetry install
+poetry add pytest pytest-cov
 
 # write omit str list to coverage file
 cat << EOF > $cov_config_fname
