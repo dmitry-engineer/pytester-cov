@@ -1,6 +1,4 @@
 FROM python:3.9.1
-RUN pip install 'poetry==1.1.11'
-RUN poetry config virtualenvs.create false
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
