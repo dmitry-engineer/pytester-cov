@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # --- Parameters --- #
 # $1: pytest-root-dir
